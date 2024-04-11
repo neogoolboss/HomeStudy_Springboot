@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.homestudy.xmlmapper.IdolGroupMapper">
+    <resultMap id="idolGroupResultMap" type="com.homestudy.common.IdolGroupDTO">
+        <id property="groupCode" column="GROUP_CODE"/>
+        <result property="groupName" column="GROUP_NAME"/>
+        <result property="groupCount" column="GROUP_COUNT"/>
+        <result property="entName" column="ENT_NAME"/>
+        <result property="hitsong" column="HITSONG"/>
+        <result property="fandumName" column="FANDUM_NAME"/>
+        <result property="debYear" column="DEB_YEAR"/>
+        <result property="disYear" column="DIS_YEAR"/>
+        <result property="disYn" column="DIS_YN"/>
+    </resultMap>
+
+    <select id="selectResultMap" resultMap="idolGroupResultMap">
+        SELECT
+               GROUP_CODE,
+               GROUP_NAME,
+               GROUP_COUNT,
+               ENT_NAME,
+               HITSONG,
+               FANDUM_NAME,
+               DEB_YEAR,
+               DIS_YEAR,
+               DIS_YN
+          FROM IDOL_GROUP
+         ORDER BY GROUP_CODE
+    </select>
+</mapper>
