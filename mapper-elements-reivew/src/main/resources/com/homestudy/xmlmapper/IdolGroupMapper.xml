@@ -29,4 +29,128 @@
           FROM IDOL_GROUP
          ORDER BY GROUP_CODE
     </select>
+
+    <resultMap id="idolGroupResultMap2" type="com.homestudy.common.IdolGroupDTO">
+        <constructor>
+            <idArg column="GROUP_CODE" javaType="_int"/>
+            <arg column="GROUP_NAME" javaType="string"/>
+            <arg column="GROUP_COUNT" javaType="_int"/>
+            <arg column="ENT_NAME" javaType="string"/>
+            <arg column="HITSONG" javaType="string"/>
+            <arg column="FANDUM_NAME" javaType="string"/>
+            <arg column="DEB_YEAR" javaType="string"/>
+            <arg column="DIS_YEAR" javaType="string"/>
+            <arg column="DIS_YN" javaType="string"/>
+        </constructor>
+    </resultMap>
+
+    <select id="selectResultMapConstructor" resultMap="idolGroupResultMap2">
+        SELECT
+               A.GROUP_CODE,
+               A.GROUP_NAME,
+               A.GROUP_COUNT,
+               A.ENT_NAME,
+               A.HITSONG,
+               A.FANDUM_NAME,
+               A.DEB_YEAR,
+               A.DIS_YEAR,
+               A.DIS_YN
+          FROM IDOL_GROUP A
+         ORDER BY A.GROUP_NAME
+    </select>
+
+    <resultMap id="idolGroupAndHitsongResultMap" type="com.homestudy.common.IdolGroupAndHitsongDTO">
+        <id property="groupCode" column="GROUP_CODE"/>
+        <result property="groupName" column="GROUP_NAME"/>
+        <result property="groupCount" column="GROUP_COUNT"/>
+        <result property="entName" column="ENT_NAME"/>
+        <result property="fandumName" column="FANDUM_NAME"/>
+        <result property="debYear" column="DEB_YEAR"/>
+        <result property="disYear" column="DIS_YEAR"/>
+        <result property="disYn" column="DIS_YN"/>
+        <association property="hitsong" javaType="com.homestudy.common.HitsongDTO">
+            <id property="hitCode" column="HIT_CODE"/>
+            <result property="groupCode" column="GROUP_CODE"/>
+            <result property="hitName" column="HIT_NAME"/>
+            <result property="albumName" column="ALBUM_NAME"/>
+            <result property="titleYn" column="TITLE_YN"/>
+        </association>
+    </resultMap>
+
+    <select id="selectResultMapAssociation" resultMap="idolGroupAndHitsongResultMap">
+        SELECT
+               A.GROUP_CODE,
+               A.GROUP_NAME,
+               A.GROUP_COUNT,
+               A.ENT_NAME,
+               B.HIT_NAME,
+               B.ALBUM_NAME,
+               B.TITLE_YN,
+               A.FANDUM_NAME,
+               A.DEB_YEAR,
+               A.DIS_YEAR,
+               A.DIS_YN
+          FROM IDOL_GROUP A
+          JOIN HITSONG B ON (A.GROUP_CODE = B.GROUP_CODE)
+        ORDER BY A.GROUP_CODE
+    </select>
+
+    <resultMap id="hitsongAndIdolGroupResultMap" type="com.homestudy.common.HitsongAndIdolGroupDTO">
+        <id property="hitCode" column="HIT_CODE"/>
+        <result property="groupCode" column="GROUP_CODE"/>
+        <result property="hitName" column="HIT_NAME"/>
+        <result property="albumName" column="ALBUM_NAME"/>
+        <result property="hitYear" column="HIT_YEAR"/>
+        <result property="titleYn" column="TITLE_YN"/>
+        <collection property="idolList" ofType="com.homestudy.common.IdolGroupDTO">
+            <id property="groupCode" column="GROUP_CODE"/>
+            <result property="groupName" column="GROUP_NAME"/>
+            <result property="groupCount" column="GROUP_COUNT"/>
+            <result property="entName" column="ENT_NAME"/>
+            <result property="fandumName" column="FANDUM_NAME"/>
+            <result property="debYear" column="DEB_YEAR"/>
+            <result property="disYear" column="DIS_YEAR"/>
+            <result property="disYn" column="DIS_YN"/>
+        </collection>
+
+    </resultMap>
+
+    <select id="selectResultMapCollection" resultMap="hitsongAndIdolGroupResultMap">
+        SELECT
+               A.HIT_CODE,
+               A.GROUP_CODE,
+               B.GROUP_NAME,
+               A.HIT_NAME,
+               A.HIT_YEAR,
+               A.ALBUM_NAME,
+               A.TITLE_YN
+          FROM HITSONG A
+        LEFT JOIN IDOL_GROUP B ON (A.GROUP_CODE = B.GROUP_CODE)
+        ORDER BY A.GROUP_CODE
+    </select>
+
+    <insert id="insertIdol" parameterType="com.homestudy.common.IdolGroupDTO">
+        INSERT
+          INTO IDOL_GROUP
+               (
+                GROUP_NAME,
+                GROUP_COUNT,
+                ENT_NAME,
+                HITSONG,
+                FANDUM_NAME,
+                DEB_YEAR,
+                DIS_YEAR,
+                DIS_YN
+               )
+         VALUE (
+                #{groupName},
+                #{groupCount},
+                #{entName},
+                #{hitsong},
+                #{fandumName},
+                #{debYear},
+                #{disYear},
+                #{disYn}
+                )
+    </insert>
 </mapper>

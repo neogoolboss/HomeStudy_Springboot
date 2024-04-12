@@ -1,20 +1,24 @@
 package com.homestudy.common;
 
-public class HitsongDTO {
+import java.util.List;
 
-    private int hitCode;        // 히트곡 코드
-    private int groupCode;      // 그룹 코드
-    private String hitName;     // 히트곡 명
-    private String hitYear;     // 히트년도
-    private String albumName;   // 앨범 명
-    private String titleYn;       // 타이틀 여부
+public class HitsongAndIdolGroupDTO {
 
-    public HitsongDTO() {
+    private int hitCode;
+    private int groupCode;
+    private List<IdolGroupDTO> idolList;
+    private String hitName;
+    private String hitYear;
+    private String albumName;
+    private String titleYn;
+
+    public HitsongAndIdolGroupDTO() {
     }
 
-    public HitsongDTO(int hitCode, int groupCode, String hitName, String hitYear, String albumName, String titleYn) {
+    public HitsongAndIdolGroupDTO(int hitCode, int groupCode, List<IdolGroupDTO> idolList, String hitName, String hitYear, String albumName, String titleYn) {
         this.hitCode = hitCode;
         this.groupCode = groupCode;
+        this.idolList = idolList;
         this.hitName = hitName;
         this.hitYear = hitYear;
         this.albumName = albumName;
@@ -35,6 +39,14 @@ public class HitsongDTO {
 
     public void setGroupCode(int groupCode) {
         this.groupCode = groupCode;
+    }
+
+    public List<IdolGroupDTO> getIdolList() {
+        return idolList;
+    }
+
+    public void setIdolList(List<IdolGroupDTO> idolList) {
+        this.idolList = idolList;
     }
 
     public String getHitName() {
@@ -71,14 +83,14 @@ public class HitsongDTO {
 
     @Override
     public String toString() {
-        return "HitsongDTO{" +
+        return "HitsongAndIdolGroupDTO{" +
                 "hitCode=" + hitCode +
                 ", groupCode=" + groupCode +
+                ", idolList=" + idolList +
                 ", hitName='" + hitName + '\'' +
                 ", hitYear='" + hitYear + '\'' +
                 ", albumName='" + albumName + '\'' +
-                ", titleYn=" + titleYn +
+                ", titleYn='" + titleYn + '\'' +
                 '}';
     }
-
 }
