@@ -2,6 +2,7 @@ package com.ohgiraffers.board.repository;
 
 
 import com.ohgiraffers.board.dto.BoardDTO;
+import com.ohgiraffers.board.dto.BoardFileDTO;
 import lombok.RequiredArgsConstructor;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
@@ -13,10 +14,11 @@ import java.util.List;
 public class BoardRepository {
 
     private final SqlSessionTemplate sqlSessionTemplate;
-    public void save(BoardDTO boardDTO) {
+    public BoardDTO save(BoardDTO boardDTO) {
 
         sqlSessionTemplate.insert("Board.save", boardDTO);
 
+        return boardDTO;
     }
 
     public List<BoardDTO> findAll() {
@@ -37,5 +39,13 @@ public class BoardRepository {
 
     public void delete(Long id) {
         sqlSessionTemplate.delete("Board.delete", id);
+    }
+
+    public void saveFile(BoardFileDTO boardFileDTO) {
+        sqlSessionTemplate.insert("Board.saveFile", boardFileDTO);
+    }
+
+    public List<BoardFileDTO> findFile(Long id) {
+       return sqlSessionTemplate.selectList("Board.findFile", id);
     }
 }

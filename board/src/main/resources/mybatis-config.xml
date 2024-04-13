@@ -4,5 +4,6 @@
 <configuration>
     <typeAliases>
         <typeAlias type="com.ohgiraffers.board.dto.BoardDTO" alias="board"></typeAlias>
+        <typeAlias type="com.ohgiraffers.board.dto.BoardFileDTO" alias="boardFile"></typeAlias>
     </typeAliases>
 </configuration>
