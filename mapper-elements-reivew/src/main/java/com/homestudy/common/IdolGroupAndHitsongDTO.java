@@ -1,21 +1,21 @@
 package com.homestudy.common;
 
-public class IdolGroupDTO {
+public class IdolGroupAndHitsongDTO {
 
-    private int groupCode;      // 그룹 코드
-    private String groupName;   // 그룹 명
-    private int groupCount;     // 그룹 인원
-    private String entName;     // 소속사
-    private String hitsong;     // 히트곡
-    private String fandumName;  // 팬덤 명
-    private String debYear;     // 데뷔년도
-    private String disYear;     // 해체연도
-    private String disYn;         // 해체여부
+    private int groupCode;
+    private String groupName;
+    private int groupCount;
+    private String entName;
+    private HitsongDTO hitsong;
+    private String fandumName;
+    private String debYear;
+    private String disYear;
+    private String disYn;
 
-    public IdolGroupDTO() {
+    public IdolGroupAndHitsongDTO() {
     }
 
-    public IdolGroupDTO(int groupCode, String groupName, int groupCount, String entName, String hitsong, String fandumName, String debYear, String disYear, String disYn) {
+    public IdolGroupAndHitsongDTO(int groupCode, String groupName, int groupCount, String entName, HitsongDTO hitsong, String fandumName, String debYear, String disYear, String disYn) {
         this.groupCode = groupCode;
         this.groupName = groupName;
         this.groupCount = groupCount;
@@ -59,11 +59,11 @@ public class IdolGroupDTO {
         this.entName = entName;
     }
 
-    public String getHitsong() {
+    public HitsongDTO getHitsong() {
         return hitsong;
     }
 
-    public void setHitsong(String hitsong) {
+    public void setHitsong(HitsongDTO hitsong) {
         this.hitsong = hitsong;
     }
 
@@ -101,17 +101,16 @@ public class IdolGroupDTO {
 
     @Override
     public String toString() {
-        return "IdolGroupDTO{" +
+        return "IdolGroupAndHitsongDTO{" +
                 "groupCode=" + groupCode +
                 ", groupName='" + groupName + '\'' +
                 ", groupCount=" + groupCount +
                 ", entName='" + entName + '\'' +
-                ", hitsong='" + hitsong + '\'' +
+                ", hitsong=" + hitsong +
                 ", fandumName='" + fandumName + '\'' +
                 ", debYear='" + debYear + '\'' +
                 ", disYear='" + disYear + '\'' +
-                ", disYn=" + disYn +
+                ", disYn='" + disYn + '\'' +
                 '}';
     }
-
 }
