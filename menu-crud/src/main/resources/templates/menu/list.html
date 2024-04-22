@@ -15,6 +15,7 @@
             <th>카테고리코드</th>
             <th>판매 상태</th>
             <th>수정</th>
+            <th>수정2</th>
             <th>삭제</th>
         </tr>
         <tr th:each="menu : ${ menuList }">
@@ -25,6 +26,9 @@
             <td th:text="${ menu.orderableStatus }"></td>
             <td>
                 <a th:href="'/menu/update'">수정</a>
+            </td>
+            <td>
+                <a th:href="@{|/menu/update/${menu.code}|}">수정2</a>
             </td>
             <td>
                 <a th:href="@{|/menu/delete/${menu.code}|}">삭제</a>

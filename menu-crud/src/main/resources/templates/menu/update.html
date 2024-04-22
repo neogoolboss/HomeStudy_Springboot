@@ -5,10 +5,10 @@
     <title>Title</title>
 </head>
 <body>
-    <form th:action="'/menu/update'" method="post">
-<!--        <input type="hidden" name="code" th:value="${menu.code}">-->
-        <label>수정할 메뉴 : </label>
-        <select name="code" id="code"></select><br>
+    <form th:action="@{|/menu/update/${menu.code}|}" method="post">
+        <input type="hidden" name="code" th:value="${menu.code}">
+<!--        <label>수정할 메뉴 : </label>-->
+<!--        <select name="code" id="code"></select><br>-->
         <label>수정할 메뉴 이름 : </label>
         <input type="text" name="name"><br>
         <label>수정할 메뉴 가격 : </label>
@@ -23,7 +23,7 @@
         <input type="submit" value="수정쓰">
     </form>
     <button onclick="location.href='/'">메인으로</button>
-    
+
 
     <script>
         fetch("/menu/code")

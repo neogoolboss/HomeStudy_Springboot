@@ -100,5 +100,22 @@ public class MainController {
         return "redirect:/menu/list";
     }
 
+    @GetMapping("/update/{code}")
+    public String update2(@PathVariable("code") int code, Model model) {
+        MenuDTO menuDTO = menuService.findByCode2(code);
+        model.addAttribute("menu", menuDTO);
+
+        return "menu/update";
+    }
+
+    @PostMapping("/update/{code}")
+    public String update2(MenuDTO menuDTO, Model model) {
+        menuService.update2(menuDTO);
+        MenuDTO dto = menuService.findByCode2(menuDTO.getCode());
+        model.addAttribute("menu", dto);
+
+        return "redirect:/menu/list";
+    }
+
 
 }
