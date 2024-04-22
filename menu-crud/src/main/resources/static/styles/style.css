@@ -1,0 +1,56 @@
+h1 {
+    height: 100px;
+    background-color: deeppink;
+    color: white;
+    margin: 1rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    height: 50px;
+    background-color: darkblue;
+    color: white;
+    border-radius: 25px;
+    border: none;
+    padding: 20px;
+    font-weight: bolder;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem auto;
+    cursor: pointer;
+}
+
+button:hover {
+    height: 50px;
+    background-color: darkred;
+    color: white;
+    border-radius: 25px;
+    border: none;
+    padding: 20px;
+    font-weight: bolder;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem auto;
+    cursor: pointer;
+}
+
+th {
+    background-color: cornflowerblue;
+    font-weight: bolder;
+    text-align: center;
+    padding: 10px;
+}
+
+td {
+    background-color: lightpink;
+    font-weight: bolder;
+    text-align: center;
+    padding: 10px;
+
+}

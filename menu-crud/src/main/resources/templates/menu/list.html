@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu List</title>
+    <link rel="stylesheet" href="/styles/style.css">
+
+</head>
+<body>
+    <table align="center" border="1">
+        <tr>
+            <th>메뉴 번호</th>
+            <th>메뉴 이름</th>
+            <th>메뉴 가격</th>
+            <th>카테고리코드</th>
+            <th>판매 상태</th>
+            <th>수정</th>
+            <th>삭제</th>
+        </tr>
+        <tr th:each="menu : ${ menuList }">
+            <td th:text="${ menu.code }"></td>
+            <td th:text="${ menu.name }"></td>
+            <td th:text="${ menu.price }"></td>
+            <td th:text="${ menu.categoryCode }"></td>
+            <td th:text="${ menu.orderableStatus }"></td>
+            <td>
+                <a th:href="@{|/menu/update/${menu.code}|}">수정</a>
+            </td>
+            <td>
+                <a th:href="@{|/menu/delete/${menu.code}|}">삭제</a>
+            </td>
+        </tr>
+    </table>
+    <button onclick="location.href='/menu/regist'">신규메뉴추가</button>
+    <button onclick="location.href='/'">메인으로</button>
+
+</body>
+</html>

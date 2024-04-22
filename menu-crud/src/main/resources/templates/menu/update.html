@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form th:action="@{|menu/update/${menu.code}|}" method="post">
+        <input type="hidden" name="id" th:value="${menu.code}">
+        <label>수정할 메뉴 이름 : </label>
+        <input type="text" name="name"><br>
+        <label>수정할 메뉴 가격 : </label>
+        <input type="number" name="price"><br>
+        <label>수정할 카테고리 코드 : </label>
+        <select name="categoryCode" id="categoryCode"></select><br>
+        <label>수정할 판매 상태 : </label>
+        <select name="orderableStatus">
+            <option value="Y">Y</option>
+            <option value="N">N</option>
+        </select>
+        <input type="submit" value="수정쓰">
+    </form>
+</body>
+</html>
