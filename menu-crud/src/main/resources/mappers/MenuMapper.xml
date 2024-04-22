@@ -66,7 +66,7 @@
          WHERE MENU_CODE = #{ code }
     </select>
 
-    <update id="update">
+    <update id="update" parameterType="com.homestudy.menucrud.menu.model.dto.MenuDTO">
         UPDATE TBL_MENU
            SET MENU_NAME = #{ name },
                MENU_PRICE = #{ price },
@@ -75,11 +75,22 @@
          WHERE MENU_CODE = #{ code }
     </update>
 
+    <select id="findAllMenuCode" resultMap="menuResultMap">
+        SELECT
+               MENU_CODE,
+               MENU_NAME,
+               MENU_PRICE,
+               CATEGORY_CODE,
+               ORDERABLE_STATUS
+          FROM TBL_MENU
+    </select>
+
     <delete id="delete" parameterType="_int">
         DELETE
           FROM TBL_MENU
          WHERE MENU_CODE = #{ code }
     </delete>
+
 
 
 

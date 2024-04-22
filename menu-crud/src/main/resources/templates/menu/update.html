@@ -5,8 +5,10 @@
     <title>Title</title>
 </head>
 <body>
-    <form th:action="@{|menu/update/${menu.code}|}" method="post">
-        <input type="hidden" name="id" th:value="${menu.code}">
+    <form th:action="'/menu/update'" method="post">
+<!--        <input type="hidden" name="code" th:value="${menu.code}">-->
+        <label>수정할 메뉴 : </label>
+        <select name="code" id="code"></select><br>
         <label>수정할 메뉴 이름 : </label>
         <input type="text" name="name"><br>
         <label>수정할 메뉴 가격 : </label>
@@ -20,5 +22,41 @@
         </select>
         <input type="submit" value="수정쓰">
     </form>
+    <button onclick="location.href='/'">메인으로</button>
+    
+
+    <script>
+        fetch("/menu/code")
+            .then(res => res.json())
+            .then(data => {
+                const $code = document.getElementById("code");
+
+                for(let index in data) {
+                    const $option = document.createElement('option');
+                    $option.value = data[index].code;
+                    $option.text = data[index].name;
+
+                    $code.appendChild($option);
+                }
+            });
+    </script>
+
+    <script>
+        fetch("/menu/category")
+            .then(res => res.json())
+            .then(data => {
+                const $categoryCode = document.getElementById("categoryCode");
+
+                for(let index in data) {
+                    const $option = document.createElement('option');
+                    $option.value = data[index].code;
+                    $option.text = data[index].name;
+
+                    $categoryCode.appendChild($option);
+                }
+            });
+
+    </script>
+
 </body>
 </html>

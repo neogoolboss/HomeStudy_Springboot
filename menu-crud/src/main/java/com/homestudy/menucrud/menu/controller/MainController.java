@@ -65,20 +65,31 @@ public class MainController {
 //        return "/menu/list";
 //    }
 
-    @GetMapping("/update/{code}")
-    public String update(@PathVariable("code") int code, Model model) {
-        MenuDTO menu = menuService.findByCode(code);
-        model.addAttribute("menu", menu);
-
-        return "menu/update";
+//    @GetMapping("/update/{code}")
+//    public String update(@PathVariable("code") int code, Model model) {
+//        MenuDTO menu = menuService.findByCode(code);
+//        model.addAttribute("menu", menu);
+//
+//        return "menu/update";
+//    }
+    @GetMapping("/update")
+    public void updatePage() {
     }
 
-    @PostMapping("/update/{code}")
+    @PostMapping("/update")
     public String update(MenuDTO menu, Model model){
         menuService.update(menu);
         MenuDTO dto = menuService.findByCode(menu.getCode());
         model.addAttribute("menu", dto);
-        return "redirect:/menu/list";
+        return "menu/update";
+    }
+
+    @GetMapping(value = "code", produces = "application/json; charset=UTF-8")
+    @ResponseBody
+    public List<MenuDTO> findMenuCode() {
+        menuService.findAllMenuCode().forEach(System.out::println);
+
+        return menuService.findAllMenuCode();
     }
 
 

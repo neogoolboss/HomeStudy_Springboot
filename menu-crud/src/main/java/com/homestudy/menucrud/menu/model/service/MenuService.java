@@ -48,4 +48,9 @@ public class MenuService {
     public void update(MenuDTO menu) {
         menuMapper.update(menu);
     }
+
+    public List<MenuDTO> findAllMenuCode() {
+
+        return menuMapper.findAllMenuCode();
+    }
 }

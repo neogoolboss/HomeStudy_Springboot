@@ -19,4 +19,6 @@ public interface MenuMapper {
     MenuDTO findByCode(int code);
 
     void update(MenuDTO menu);
+
+    List<MenuDTO> findAllMenuCode();
 }
