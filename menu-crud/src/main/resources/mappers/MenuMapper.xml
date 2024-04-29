@@ -75,6 +75,15 @@
          WHERE MENU_CODE = #{ code }
     </update>
 
+    <update id="update2">
+        UPDATE TBL_MENU
+        SET MENU_NAME = #{ name },
+        MENU_PRICE = #{ price },
+        CATEGORY_CODE = #{ categoryCode },
+        ORDERABLE_STATUS = #{ orderableStatus }
+        WHERE MENU_CODE = #{ code }
+    </update>
+
     <select id="findAllMenuCode" resultMap="menuResultMap">
         SELECT
                MENU_CODE,
