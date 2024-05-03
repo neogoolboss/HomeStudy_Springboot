@@ -1,61 +1,58 @@
-
-
-.background {
-    width: 1536px;
-    height: 72px;
-    margin: 0 auto;
-    background-color: pink;
-    display: flex;
-    justify-content: center;
-}
-
-.footerBar {
-    width: 1456px;
-    height: 56px;
-    background: #4B82D8;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
+.footer {
+    width: 1506px;
+    max-width: 100%;
+    aspect-ratio: 100/3.85;
+    background-color: #4B82D8;
     display: flex;
     align-items: center;
-
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    white-space: nowrap;
 }
 
-p {
-    font-size: 12.8px;
-    color: #FFFFFF;
-}
-
-.About {
-    font-size: 19.2px;
+.big-font {
+    font-size: 1.27vw;
     font-weight: bold;
-    margin-left: 39px;
 }
 
-.Email, .Tel{
-    font-size: 19.2px;
-    font-weight: bold;
-    margin-left: 54px;
-}
-
-.Wt {
-    font-size: 12.8px;
-    margin-left: 193px;
+.small-font {
+    font-size: 0.8vw;
+    /*white-space: nowrap;*/
 }
 
 .cut {
-    margin-left: 30px;
-    margin-right: 30px;
-    font-size: 14px;
+    font-size: 0.8vw;
 }
 
 .c {
-    font-size: 19.2px;
-    margin-left: 222px;
+    font-size: 1.79vw;
 }
 
 .copy {
-    font-size: 16px;
-    margin-left: 14px;
+    font-size: 1.06vw;
+    /*white-space: nowrap;*/
 }
 
+.footer-empty0 {
+    width: 2.72vw;
+}
 
+.footer-empty1 {
+    width: 13.28vw;
+}
+
+.footer-empty2 {
+    width: 2.05vw;
+}
+
+.footer-empty3 {
+    width: 15.2vw;
+}
+
+.footer-empty4 {
+    width: 0.93vw;
+}
+
+.footer-empty5 {
+    width: 4.58vw;
+}
