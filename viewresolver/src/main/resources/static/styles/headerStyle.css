@@ -68,3 +68,17 @@
 .empty5 {
     width: 1.59vw;
 }
+
+@media screen and (min-width: 1200px) {
+    .gym {
+        font-size: 30.4px;
+    }
+
+    .family {
+        font-size: 30.4px;
+    }
+
+    .welcome {
+        font-size: 19.2px;
+    }
+}
