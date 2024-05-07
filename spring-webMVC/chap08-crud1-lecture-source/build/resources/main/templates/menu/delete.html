@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/style/common.css">
+
+</head>
+<body>
+<div th:replace="common/header.html"></div>
+
+    <h2>메뉴 삭제</h2>
+    <form action="/menu/delete" method="post">
+        <label>삭제하실 메뉴 코드를 입력하세요 : </label>
+<!--        <input type="number" name="code"><br>-->
+            <select name="code" id="code"></select>
+        <input type="submit" value="삭제">
+    </form>
+
+    <script>
+        fetch("/menu/code")
+            .then(res => res.json())
+            .then(data => {
+                const $code = document.getElementById("code");
+
+                for(let index in data) {
+                    const $option = document.createElement('option');
+                    $option.value = data[index].code;
+                    $option.text = data[index].name;
+
+                    $code.appendChild($option);
+                }
+            });
+    </script>
+
+</body>
+</html>

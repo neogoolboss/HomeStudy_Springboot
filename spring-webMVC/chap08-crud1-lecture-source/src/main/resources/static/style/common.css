@@ -1,0 +1,78 @@
+h1 {
+    width: 90%;
+    height: 100px;
+    background-color: deeppink;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem auto;
+}
+
+h2 {
+    color: darkgoldenrod;
+    text-align: center;
+}
+
+h3 {
+    color: brown;
+    text-align: center;
+}
+
+button {
+    border-radius: 25px;
+    border: none;
+    padding: 15px;
+    background-color: darkblue;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem auto;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+button:hover{
+    border-radius: 25px;
+    border: none;
+    padding: 15px;
+    background-color: orangered;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem auto;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+hr {
+    width: 90%;
+    margin: 1rem auto;
+    border: 2px dotted orangered;
+}
+
+img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem auto;
+    width: 90%;
+}
+
+form {
+    margin: 1rem auto;
+}
+
+td {
+    text-align: center;
+    padding: 5px;
+    background: lightblue;
+    font-weight: bolder;
+}
+
+th {
+    background: lightsalmon;
+    padding: 5px;
+}
