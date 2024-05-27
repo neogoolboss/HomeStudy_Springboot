@@ -1,15 +1,18 @@
 package com.homestudy.jwtsecurity.auth.config;
 
 
+import com.homestudy.jwtsecurity.auth.filter.HeaderFilter;
+import com.homestudy.jwtsecurity.auth.interceptor.JwtTokenInterceptor;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableWebMvc /* Spring MVC 설정을 활성화 함 */
-public class WebConfig {
+public class WebConfig implements WebMvcConfigurer {
 
     /* 정적 리소스를 찾을 위치들을 정의하는 상수 배열 */
     private static final String[] CLASSPATH_RESOURCE_LOCATIONS = {
