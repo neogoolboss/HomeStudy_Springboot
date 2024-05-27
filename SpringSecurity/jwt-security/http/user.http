@@ -1,0 +1,29 @@
+### 회원가입
+POST http://localhost:8080/signup
+Content-Type: application/json
+Accept: */*
+
+{
+  "userId": "user03",
+  "userName": "코알라",
+  "userPass": "pass03",
+  "userRole": "ALL"
+}
+
+### 로그인
+POST http://localhost:8080/login
+Content-Type: application/json
+Accept: */*
+
+{
+  "userId": "user03",
+  "userPass": "pass03"
+}
+
+### GET 요청
+GET http://localhost:8080/test
+Authorization: BEARER eyJkYXRlIjoxNzE2ODE5OTkyODI1LCJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJzdWIiOiJvaGdpcmFmZmVycyB0b2tlbiA6IDEiLCJ1c2VyTmFtZSI6Iuy9lOyVjOudvCIsInVzZXJSb2xlIjoiQUxMIiwiZXhwIjoxNzE2OTA2MzkyLCJ1c2VySWQiOiJ1c2VyMDMifQ.TkPtfacCaOhBYlfuaSIsZb1hOE186GTEO7GxW0ESJk0
+
+### POST 요청
+POST http://localhost:8080/test
+Authorization: BEARER eyJkYXRlIjoxNzE2ODE5OTkyODI1LCJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJzdWIiOiJvaGdpcmFmZmVycyB0b2tlbiA6IDEiLCJ1c2VyTmFtZSI6Iuy9lOyVjOudvCIsInVzZXJSb2xlIjoiQUxMIiwiZXhwIjoxNzE2OTA2MzkyLCJ1c2VySWQiOiJ1c2VyMDMifQ.TkPtfacCaOhBYlfuaSIsZb1hOE186GTEO7GxW0ESJk0
